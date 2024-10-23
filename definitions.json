@@ -1,0 +1,49 @@
+{
+	"process_names": ["World of Warcraft"],
+	"description": "Looks for GTFO Alerts",
+	"aspect_ratios": {
+        	"0": {
+                	"id" : "16:9",
+                	"sample_w": 3840,
+                	"sample_h": 2160
+		}
+
+	},
+	"templates": {
+		"danger": {
+			"filename": "danger.png", 
+			"threshold": 0.50,
+			"debug": false
+		}
+	},
+	"regions": {
+		"gtfo": {
+			"3840x2160": {
+				"x": 106,
+                		"y": 1481,
+                		"w": 262,
+                		"h": 52
+            		}
+		}
+	},
+	"events": {
+		"damage": {
+			"additive": true,
+			"duration": 1,
+			"match": {
+				"template": "danger",
+				"region": "gtfo"
+			}
+		}
+	},
+	"default_config": {
+		"aspect_ratio_index": 0,
+		"decay": 60,
+		"score_cap": 200,
+		"events": {
+			"damage": {
+				"points": 100
+			}
+		}
+	}
+}
